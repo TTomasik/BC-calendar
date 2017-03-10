@@ -1,0 +1,30 @@
+{% extends 'tours/base.html' %}
+
+{% block title %}
+<strong>-- {{ calendar }} --</strong>
+{% endblock %}
+
+{% block content %}
+<div class="panel panel-primary" style="width: 30%">
+    <div class="panel-heading">
+        <strong>Tour: {{ name }}</strong>
+    </div>
+    <div class="panel-body">
+        <div>
+            <ul>
+                <li><b>DESTINATION:</b> {{ destination }}</li>
+                <li><b>DATE:</b> {{ start_date }}-{{ end_date }}</li>
+                <li><b>LENGTH:</b> {{ length }} days</li>
+                <li><b>PARTICIPANTS:</b>
+                    <ul>
+                        <li><b>{{ first_name }} {{ last_name }}, {% if company not in null %}{{ company }}, {% endif %}  phone: {{ phone }} </b><i>/date of registration: {{ date_of_entry }}/</i></li>
+                    </ul>
+                </li>
+                <li><b>COLOR: </b><span style="background-color: {{ color }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+

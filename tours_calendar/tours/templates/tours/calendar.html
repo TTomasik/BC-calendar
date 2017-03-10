@@ -1,0 +1,62 @@
+{% extends 'tours/base.html' %}
+
+{% block content %}
+<center>
+    <div class="panel panel-primary" style="width: 70%">
+        <div class="panel-heading">
+            <strong><font size="10">{{ name }}</font></strong>
+        </div>
+        <div class="panel-body">
+            <div style="width: 15%; float: left; border: 1px solid black;">
+                <b>START-DATE</b>
+            </div>
+            <div style="width: 15%; float: left; border: 1px solid black;">
+                <b>END-DATE</b>
+            </div>
+            <div style="width: 70%; float: left; border: 1px solid black;">
+                <b>TOUR</b>
+            </div>
+
+            {% for i in tour_list %}
+            <a href="/tour_info/{{ i.tour_id }}">
+                <div style="width: 15%; height: 40px; line-height: 40px; float: left; border: 1px solid black; background-color: {{ i.color }};">
+                    <font color="black"><b>{{ i.start_date }}</b></font>
+                </div>
+            </a>
+            <a href="/tour_info/{{ i.tour_id }}">
+                <div style="width: 15%; height: 40px; line-height: 40px;  float: left; border: 1px solid black; background-color: {{ i.color }};">
+                    <font color="black"><b>{{ i.end_date }}</b></font>
+                </div>
+            </a>
+
+            <div style="width: 70%; height: 40px; line-height: 40px;  float: left; border: 1px solid black; background-color: {{ i.color }};">
+                <a href="/tour_info/{{ i.tour_id }}">
+                    <font color="black"><b>{{ i.tour_name }}</b></font>
+                </a>
+
+                <form action="{% url 'edit-tour' i.tour_id  %}" style="float: right;">
+                    <font color="black">
+                        <input type="submit" value="EDIT" class="btn btn-primary btn-sm"/>
+                    </font>
+                </form>
+                <form action="{% url 'delete-tour' i.tour_id  %}" style="float: right; margin-right: 3px;">
+                    <font color="black">
+                        <input type="submit" value="DELETE" class="btn btn-danger btn-sm"/>
+                    </font>
+                </form>
+            </div>
+            {% endfor %}
+
+            <form action="{% url 'add-tour' %}" style="float: left; margin-top: 5px;">
+                <font color="black">
+                    <input type="submit" value="ADD TOUR" class="btn btn-primary btn-sm"/>
+                </font>
+            </form>
+        </div>
+
+    </div>
+</center>
+{% endblock %}
+
+
+

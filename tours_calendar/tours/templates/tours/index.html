@@ -1,0 +1,22 @@
+{% extends 'tours/base.html' %}
+
+{% block content %}
+<center>
+    <div class="panel panel-primary" style="width: 70%">
+        <div class="panel-heading">
+            <strong><font size="10">CALENDARS</font></strong>
+        </div>
+        <div class="panel-body">
+            <div>
+                <ul>
+                    {% for i in calendars %}
+                    <li><a href="/calendar/{{ i.id }}">{{ i.calendar_name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</center>
+{% endblock %}
+
+
